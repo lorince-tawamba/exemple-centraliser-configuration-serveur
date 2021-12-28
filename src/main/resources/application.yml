@@ -1,0 +1,34 @@
+# =======================================
+# Server
+# =======================================
+server:
+  port: 8888
+
+# =================================
+# SERVICE CONFIGURATION
+# =================================
+spring:
+  application:
+    name: exemple-centraliser-configuration-serveur
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/lorince-tawamba/exemple-fichiers-configuration.git
+          default-label: main
+          username: lorince-tawamba
+          password: votre-mot-de-passe-ici
+          search-paths: exemple-spring-boot-microservice1, exemple-spring-boot-microservice2
+
+# =======================================
+# Enables Spring Boot Actuator end points
+# =======================================
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: "ALWAYS"
+
